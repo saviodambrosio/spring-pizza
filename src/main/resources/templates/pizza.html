@@ -5,12 +5,40 @@
 		<title>Menu</title>
 	</head>
 	<body>
-	<h1>Pizza</h1>
+	<h1>Le nostre pizze</h1>
+	<div>
+	<a class="btn btn-primary" th:href="@{/create}"><i class="fas fa-plus"></i> Inserisci Pizza</a>
+	</div>
+	
+	
+	<table class="table" th:if="${list.size > 0}">
+        <thead>
+            <tr>
+                <th>Nome Pizza</th>
+                <th>Descrizione</th>
+                <th>Prezzo</th>
+                <th>Ingredienti</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item:${list}">
+                    <td th:text="${item.nome}"></td>
+                    <td th:text="${item.descrizione}"></td>
+                    <td th:text="${item.prezzo}"></td>
+            </tr>        
+            </tbody>
+	</table>
+	<div class="alert alert-danger" role="alert" th:unless="${list.size>0}">
+  La lista delle pizze è vuota
+</div>
 	
 	
 	
 	
 	
 	
+	
+	<div th:replace="fragments/resources :: scripts"></div>
 	</body>
 </html>

@@ -18,4 +18,8 @@ public class PizzaService {
 		return repository.findAll();
 	}
 	
+	public Pizza save(Pizza pizza) {
+        return repository.save(pizza);
+    }
+	
 }

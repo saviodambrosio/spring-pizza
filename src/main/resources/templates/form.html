@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/resources :: headTags"></div>
+		<title>Form</title>
+	</head>
+	<body>
+	
+	
+	
+	<form id="pizza-form" th:object="${pizza}" th:action=" @{/create}" method="post">
+  <div class="row">
+  <div class="col-3">
+                        <label class="form-label" for="nome">Nome Pizza</label>
+                        <input type="text" class="form-control" id="nome" th:field="*{nome}" >
+                        </div>
+  </div>
+   <div class="col-3">
+                        <label class="form-label" for="descrizione">Descrizione</label>
+                        <input type="text" class="form-control" id="descrizione" th:field="*{descrizione}" >
+                        </div>
+  </div>
+   <div class="col-3">
+                        <label class="form-label" for="prezzo">Prezzo</label>
+                        <input type="number" class="form-control" id="prezzo" th:field="*{prezzo}" >
+                        </div>
+  </div>
+  <div class="col-12">
+                        <button class="btn btn-primary mt-3" type="submit"><i class="fas fa-check"></i> Salva</button>
+                        <a class="btn btn-primary mt-3" th:href="@{/}"><i class="fas fa-times"></i> Annulla</a>
+                    </div>
+</form>
+	
+	
+	
+	
+	
+	
+	</body>
