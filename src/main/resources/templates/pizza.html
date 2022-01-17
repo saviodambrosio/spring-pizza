@@ -16,8 +16,7 @@
             <tr>
                 <th>Nome Pizza</th>
                 <th>Descrizione</th>
-                <th>Prezzo</th>
-                <th>Ingredienti</th>
+                <th>Prezzo</th>              
 
             </tr>
             </thead>
@@ -25,7 +24,12 @@
             <tr th:each="item:${list}">
                     <td th:text="${item.nome}"></td>
                     <td th:text="${item.descrizione}"></td>
-                    <td th:text="${item.prezzo}"></td>
+                    <td th:text="${item.prezzo} +'€'"></td>
+					<td>
+						<a class="btn btn-primary" th:href="@{|/edit/${item.id}|}"><i class="fas fa-edit"></i></a>
+						<a class="btn btn-primary" th:href="@{|/delete/${item.id}|}"
+							onclick="return confirm('Sei sicuro di volerlo eliminare?')"><i class="fas fa-trash"></i></a>
+					</td>
             </tr>        
             </tbody>
 	</table>

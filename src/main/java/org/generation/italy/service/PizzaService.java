@@ -14,12 +14,33 @@ public class PizzaService {
 	@Autowired
 	private PizzaRepository repository;
 	
-	public List<Pizza> findAll() {
-		return repository.findAll();
+	public List<Pizza> findAll(){
+		return repository.findAll(Sort.by("nome"));
+	}
+		
+	public Pizza save (Pizza pizza) {
+		return repository.save(pizza);
 	}
 	
-	public Pizza save(Pizza pizza) {
-        return repository.save(pizza);
-    }
+	public Pizza getById(Integer id) {
+		return repository.getById(id);
+	}
+	
+	public Pizza update(Pizza pizza) {
+		return repository.save(pizza);
+	}
+	
+	public void deleteById(Integer id) {
+		repository.deleteById(id);
+	}
 	
 }
+
+
+
+
+
+
+
+
+
